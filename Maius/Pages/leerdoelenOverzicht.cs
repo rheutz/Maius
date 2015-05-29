@@ -8,9 +8,8 @@ namespace Maius
 	{
 		public leerdoelenOverzicht ()
 		{
-			
+			BackgroundColor = Color.Green;
 		
-
 
 		}
 	}
