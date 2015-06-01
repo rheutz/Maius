@@ -1,21 +1,24 @@
 ﻿using System;
+using Newtonsoft.Json;
 
 namespace Maius
 {
 	public class Leerdoel
 	{
-		public string Omschrijving { get; set; }
-		public string Rating { get; set; }
+		[JsonProperty(PropertyName="id_leerdoel")]
+		public string ID { get; set; }
 
-		public Leerdoel (string omschrijving, string rating)
+		[JsonProperty(PropertyName="naam")]
+		public string Omschrijving { get; set; }
+
+
+		public Leerdoel ()
 		{
-			this.Omschrijving = omschrijving;
-			this.Rating = rating;
 		}
 
-		public override string ToString()
+		public override string ToString ()
 		{
-			return string.Format ("{0},{1}", Omschrijving, Rating);
+			return Omschrijving;
 		}
 	}
 }
