@@ -12,9 +12,11 @@ namespace Maius
 			MainPage = new carouselPage();
 		}
 
-		protected override void OnStart ()
+		protected override async void OnStart ()
 		{
 			// Handle when your app starts
+			// transfer data MaiusAPI to local database
+			await MaiusAPI.Fetch();
 		}
 
 		protected override void OnSleep ()

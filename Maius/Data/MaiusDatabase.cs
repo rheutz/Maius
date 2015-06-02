@@ -2,6 +2,7 @@
 using SQLite;
 using Xamarin.Forms;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Maius
 {
@@ -23,19 +24,46 @@ namespace Maius
 		{
 			database = DependencyService.Get<ISQLite> ().getConnection ();
 			database.CreateTable<Leerdoel>();
-			if (database.Table<Leerdoel> ().Count () == 0) {
-				initDatabase ();
-			}
+			database.CreateTable<Vak> ();
+//			if (database.Table<Leerdoel> ().Count () == 0) {
+//				initDatabase ();
+//			}
 		}
 
 		public void initDatabase ()
 		{
-			database.DeleteAll<Leerdoel> ();
+			//database.DeleteAll<Leerdoel> ();
 
 		}
-		public void AddListTODB(List<Leerdoel> list)
+
+		public List<Leerdoel> getLeerdoelen()
 		{
 			lock (locker) {
+				return (from i in database.Table<Leerdoel> ()
+				        select i).ToList ();
+			}
+		}
+
+		public List<Vak> getVakken()
+		{
+			lock (locker) {
+				return (from i in database.Table<Vak> ()
+					select i).ToList ();
+			}
+		}
+
+		public void AddLeerdoelenTODB(List<Leerdoel> list)
+		{
+			lock (locker) {
+				
+				database.InsertAll (list);
+			}
+		}
+
+		public void AddVakkenTODB(List<Vak> list)
+		{
+			lock (locker) {
+
 				database.InsertAll (list);
 			}
 		}
