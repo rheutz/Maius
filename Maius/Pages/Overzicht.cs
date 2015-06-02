@@ -25,11 +25,9 @@ namespace Maius
 
 
 
-			btnTest.Clicked += async (object sender, EventArgs e) => 
+			btnTest.Clicked += (object sender, EventArgs e) => 
 			{
-				listView.ItemsSource = null;
-				var leerdoelen = await MaiusAPI.Fetch();
-				listView.ItemsSource = leerdoelen.listLeerdoelen;
+				MaiusAPI.Fetch();
 
 			};
 
@@ -46,14 +44,7 @@ namespace Maius
 
 
 		}
-
-		private async Task<Leerdoelen> APICall()
-		{
-			var result = await MaiusAPI.Fetch ();
-
-			return result;
-		}
-			
+						
 	}
 }
 
