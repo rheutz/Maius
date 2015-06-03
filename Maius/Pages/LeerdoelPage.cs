@@ -8,6 +8,8 @@ namespace Maius
 {
 	public class LeerdoelPage : ContentPage
 	{
+		private int rating;			//store the rating
+
 		public LeerdoelPage (Leerdoel leerdoel, List<Competentie> leerdoelenCompetenties)
 		{
 			Title = " Beoordelen";
@@ -29,11 +31,92 @@ namespace Maius
 				VerticalOptions = LayoutOptions.Start,
 			};
 
+			//Ratingbar
+			var lbRating = new Label {
+				Text = "Beoordeel leerdoel",
+				FontSize = 18,
+				FontAttributes = FontAttributes.Bold,
+				TextColor = Color.Black,
+			};
+
+			var imgStar1 = new Image {
+				HeightRequest = 60,
+				WidthRequest = 60,
+				Source = ImageSource.FromResource("Maius.Images.star_outline.png"),
+			
+			};
+			var tapStar1 = new TapGestureRecognizer ();
+			imgStar1.GestureRecognizers.Add (tapStar1);
+			tapStar1.Tapped += (object sender, EventArgs e) => {
+				imgStar1.Source = ImageSource.FromResource("Maius.Images.star_selected.png");
+			};
+
+			var imgStar2 = new Image {
+				HeightRequest = 60,
+				WidthRequest = 60,
+				Source = ImageSource.FromResource("Maius.Images.star_outline.png"),
+			};
+			var tapStar2 = new TapGestureRecognizer ();
+			imgStar2.GestureRecognizers.Add (tapStar2);
+			tapStar2.Tapped += (object sender, EventArgs e) => {
+				imgStar1.Source = ImageSource.FromResource("Maius.Images.star_selected.png");
+				imgStar2.Source = ImageSource.FromResource("Maius.Images.star_selected.png");
+			};
+
+			var imgStar3 = new Image {
+				HeightRequest = 60,
+				WidthRequest = 60,
+				Source = ImageSource.FromResource("Maius.Images.star_outline.png"),
+			};
+			var tapStar3 = new TapGestureRecognizer ();
+			imgStar3.GestureRecognizers.Add (tapStar3);
+			tapStar3.Tapped += (object sender, EventArgs e) => {
+				imgStar1.Source = ImageSource.FromResource("Maius.Images.star_selected.png");
+				imgStar2.Source = ImageSource.FromResource("Maius.Images.star_selected.png");
+				imgStar3.Source = ImageSource.FromResource("Maius.Images.star_selected.png");
+			};
+
+			var imgStar4 = new Image {
+				HeightRequest = 60,
+				WidthRequest = 60,
+				Source = ImageSource.FromResource("Maius.Images.star_outline.png"),
+			};
+			var tapStar4 = new TapGestureRecognizer ();
+			imgStar4.GestureRecognizers.Add (tapStar4);
+			tapStar4.Tapped += (object sender, EventArgs e) => {
+				imgStar1.Source = ImageSource.FromResource("Maius.Images.star_selected.png");
+				imgStar2.Source = ImageSource.FromResource("Maius.Images.star_selected.png");
+				imgStar3.Source = ImageSource.FromResource("Maius.Images.star_selected.png");
+				imgStar4.Source = ImageSource.FromResource("Maius.Images.star_selected.png");
+			};
+
+			var imgStar5 = new Image {
+				HeightRequest = 60,
+				WidthRequest = 60,
+				Source = ImageSource.FromResource("Maius.Images.star_outline.png"),
+			};
+			var tapStar5 = new TapGestureRecognizer ();
+			imgStar5.GestureRecognizers.Add (tapStar5);
+			tapStar5.Tapped += (object sender, EventArgs e) => {
+				imgStar1.Source = ImageSource.FromResource("Maius.Images.star_selected.png");
+				imgStar2.Source = ImageSource.FromResource("Maius.Images.star_selected.png");
+				imgStar3.Source = ImageSource.FromResource("Maius.Images.star_selected.png");
+				imgStar4.Source = ImageSource.FromResource("Maius.Images.star_selected.png");
+				imgStar5.Source = ImageSource.FromResource("Maius.Images.star_selected.png");
+			};
+
+
+			var ratingStack = new StackLayout { 
+				Orientation = StackOrientation.Horizontal,
+				HorizontalOptions = LayoutOptions.CenterAndExpand,
+				Children = { imgStar1, imgStar2, imgStar3, imgStar4, imgStar5 },
+			};
+
 			Content = new StackLayout {
 				Padding = 10,
-				Spacing = 10,
+				Spacing = 20,
 				Children = {
-					lbLeerdoel, listView
+					lbLeerdoel, lbRating, ratingStack, listView
 				}
 			};
 		}

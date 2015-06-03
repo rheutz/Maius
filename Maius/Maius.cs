@@ -1,6 +1,7 @@
 ﻿using System;
 
 using Xamarin.Forms;
+using System.Threading.Tasks;
 
 
 
@@ -20,6 +21,7 @@ namespace Maius
 			// Handle when your app starts
 			// transfer data MaiusAPI to local database
 			await MaiusAPI.Fetch();
+
 		}
 
 		protected override void OnSleep ()

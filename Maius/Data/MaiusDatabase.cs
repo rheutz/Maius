@@ -23,8 +23,8 @@ namespace Maius
 		private MaiusDatabase ()
 		{
 			database = DependencyService.Get<ISQLite> ().getConnection ();
-			//database.CreateTable<Leerdoel>();
-			//database.CreateTable<Vak> ();
+			database.CreateTable<Leerdoel>();
+			database.CreateTable<Vak> ();
 
 			//if (database.Table<Leerdoel> ().Count () == 0) {
 				//initDatabase ();

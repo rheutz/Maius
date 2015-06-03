@@ -107,5 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Images\star.png" />
+    <EmbeddedResource Include="Images\star_outline.png" />
+    <EmbeddedResource Include="Images\star_selected.png" />
   </ItemGroup>
 </Project>
