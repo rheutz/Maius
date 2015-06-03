@@ -67,11 +67,11 @@ namespace Maius.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040001
-			public const int ApplicationName = 2130968577;
+			// aapt resource value: 0x7f030001
+			public const int ApplicationName = 2130903041;
 			
-			// aapt resource value: 0x7f040000
-			public const int Hello = 2130968576;
+			// aapt resource value: 0x7f030000
+			public const int Hello = 2130903040;
 			
 			static String()
 			{
@@ -86,8 +86,8 @@ namespace Maius.Droid
 		public partial class Style
 		{
 			
-			// aapt resource value: 0x7f030000
-			public const int Mono_Android_Theme_Splash = 2130903040;
+			// aapt resource value: 0x7f040000
+			public const int Mono_Android_Theme_Splash = 2130968576;
 			
 			static Style()
 			{

@@ -8,8 +8,10 @@ namespace Maius
 	{
 		public carouselPage ()
 		{
+			
+			
 			this.Children.Add (new Dashboard ());
-			this.Children.Add (new Overzicht ());
+			this.Children.Add (new VakOverzicht());
 		}
 	}
 }

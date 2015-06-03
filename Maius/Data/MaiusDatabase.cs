@@ -23,16 +23,20 @@ namespace Maius
 		private MaiusDatabase ()
 		{
 			database = DependencyService.Get<ISQLite> ().getConnection ();
-			database.CreateTable<Leerdoel>();
-			database.CreateTable<Vak> ();
-//			if (database.Table<Leerdoel> ().Count () == 0) {
-//				initDatabase ();
-//			}
+			//database.CreateTable<Leerdoel>();
+			//database.CreateTable<Vak> ();
+
+			//if (database.Table<Leerdoel> ().Count () == 0) {
+				//initDatabase ();
+				//database.CreateTable<Leerdoel>();
+				//database.CreateTable<Vak> ();
+			//}
 		}
 
 		public void initDatabase ()
 		{
-			//database.DeleteAll<Leerdoel> ();
+			database.DeleteAll<Leerdoel> ();
+			database.DeleteAll<Vak> ();
 
 		}
 
@@ -43,6 +47,7 @@ namespace Maius
 				        select i).ToList ();
 			}
 		}
+
 
 		public List<Vak> getVakken()
 		{
@@ -55,8 +60,10 @@ namespace Maius
 		public void AddLeerdoelenTODB(List<Leerdoel> list)
 		{
 			lock (locker) {
-				
-				database.InsertAll (list);
+				if (database.Table<Leerdoel> ().Count () != list.Count() ) {
+					database.DeleteAll<Leerdoel> ();
+					database.InsertAll (list);
+				}
 			}
 		}
 
@@ -64,7 +71,10 @@ namespace Maius
 		{
 			lock (locker) {
 
-				database.InsertAll (list);
+				if (database.Table<Vak> ().Count () != list.Count() ) {
+					database.DeleteAll<Vak> ();
+					database.InsertAll (list);
+				}
 			}
 		}
 	}

@@ -36,14 +36,19 @@
     <Compile Include="Models\Leerdoel.cs" />
     <Compile Include="Webservice\MaiusAPI.cs" />
     <Compile Include="Models\Leerdoelen.cs" />
-    <Compile Include="Pages\Overzicht.cs" />
-    <Compile Include="Views\LeerdoelCell.cs" />
     <Compile Include="Pages\carouselPage.cs" />
     <Compile Include="Data\ISQLite.cs" />
     <Compile Include="Data\MaiusDatabase.cs" />
-    <Compile Include="LeerdoelPage.cs" />
     <Compile Include="Models\Vak.cs" />
     <Compile Include="Models\Vakken.cs" />
+    <Compile Include="Pages\LeerdoelPage.cs" />
+    <Compile Include="Pages\VakOverzicht.cs" />
+    <Compile Include="Models\Competenties.cs" />
+    <Compile Include="Views\VakCell.cs" />
+    <Compile Include="Views\LeerdoelCell.cs" />
+    <Compile Include="Views\CompetentieCell.cs" />
+    <Compile Include="Pages\LeerdoelenOverzicht.cs" />
+    <Compile Include="Pages\LoginPage.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.4.2.6359\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.4.2.6359\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
@@ -98,5 +103,9 @@
     <Folder Include="Webservice\" />
     <Folder Include="Views\" />
     <Folder Include="Data\" />
+    <Folder Include="Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\star.png" />
   </ItemGroup>
 </Project>

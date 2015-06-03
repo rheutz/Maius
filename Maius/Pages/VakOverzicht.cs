@@ -4,13 +4,16 @@ using System.Threading.Tasks;
 
 namespace Maius
 {
-	public class Overzicht : ContentPage
+	public class VakOverzicht : ContentPage
 	{
-		public Overzicht ()
+		public VakOverzicht ()
 		{
+			Title = " Kies vak";
+
 			var listView = new ListView {
-				ItemTemplate = new DataTemplate (typeof(LeerdoelCell)),
+				ItemTemplate = new DataTemplate (typeof(VakCell)),
 				HasUnevenRows = true,
+
 				//ItemsSource = MaiusDatabase.GetInstance().getLeerdoelen(),
 				ItemsSource = MaiusDatabase.GetInstance().getVakken(),
 			};
@@ -24,9 +27,11 @@ namespace Maius
 
 			listView.ItemTapped += async (object sender, ItemTappedEventArgs e) => 
 			{
-				//Leerdoel selected = (Leerdoel)listView.SelectedItem;
-				//var leerdoelPage = new LeerdoelPage(selected);
-				//await Navigation.PushAsync(leerdoelPage);
+				Vak selected = (Vak)listView.SelectedItem;
+				var leerdoelenOverzicht = new LeerdoelenOverzicht(selected,await MaiusAPI.getLeerdoelenByVakID(selected.ID));
+				await Navigation.PushAsync(leerdoelenOverzicht);
+//				var vakPage = new LeerdoelPage(selected);
+//				await Navigation.PushAsync(leerdoelPage);
 
 			};
 	

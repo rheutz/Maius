@@ -2,6 +2,8 @@
 
 using Xamarin.Forms;
 
+
+
 namespace Maius
 {
 	public class App : Application
@@ -9,7 +11,8 @@ namespace Maius
 		public App ()
 		{
 			// The root page of your application
-			MainPage = new carouselPage();
+			MainPage = new NavigationPage(new VakOverzicht());
+			//MainPage = new LoginPage();
 		}
 
 		protected override async void OnStart ()
