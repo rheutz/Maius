@@ -7,7 +7,17 @@ namespace Maius
 	{
 		public LoginPage ()
 		{
+
 			Title = "Login";
+
+			var loadingIndicator = new ActivityIndicator (){ 
+				//HorizontalOptions = LayoutOptions.CenterAndExpand,
+				Color = Color.Black,
+				IsRunning = true,
+				IsEnabled = true,
+				BindingContext = this,
+			};
+			loadingIndicator.SetBinding (ActivityIndicator.IsVisibleProperty, "IsBusy");
 
 			var btnLogin = new Button {
 				Text = "Login",
@@ -23,11 +33,17 @@ namespace Maius
 					new Entry { Placeholder = "Username" },
 					new Entry { Placeholder = "Password", IsPassword = true },
 					btnLogin,
+
 				}
 			};
 
 			btnLogin.Clicked += async (object sender, EventArgs e) => {
-				//await Navigation.PushAsync(new VakOverzicht());
+				this.IsBusy = true;
+				await MaiusAPI.Fetch();
+				//var vakOverzicht = new NavigationPage(new VakOverzicht());
+				await Navigation.PushAsync(new VakOverzicht());
+				Navigation.RemovePage(this);
+				this.IsBusy = false;
 			};
 		
 

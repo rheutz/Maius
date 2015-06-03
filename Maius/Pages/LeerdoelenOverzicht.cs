@@ -11,6 +11,14 @@ namespace Maius
 		{
 			Title = " Leerdoelen";
 
+			var loadingIndicator = new ActivityIndicator (){ 
+				//HorizontalOptions = LayoutOptions.CenterAndExpand,
+				Color = Color.Black,
+				IsRunning = true,
+				IsEnabled = true,
+				BindingContext = this,
+			};
+
 			var listView = new ListView {
 				
 				ItemTemplate = new DataTemplate (typeof(LeerdoelCell)),
@@ -30,9 +38,11 @@ namespace Maius
 
 			listView.ItemTapped += async (object sender, ItemTappedEventArgs e) => 
 			{
+				this.IsBusy = true;
 				Leerdoel selected = (Leerdoel)listView.SelectedItem;
 				var leerdoelPage = new LeerdoelPage(selected, await MaiusAPI.getCompetentiesByLeerdoelID(selected.ID));
 				await Navigation.PushAsync(leerdoelPage);
+				this.IsBusy = false;
 			};
 
 
