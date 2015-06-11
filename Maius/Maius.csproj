@@ -30,25 +30,25 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Maius.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Pages\Dashboard.cs" />
-    <Compile Include="Models\Leerdoel.cs" />
-    <Compile Include="Webservice\MaiusAPI.cs" />
-    <Compile Include="Models\Leerdoelen.cs" />
-    <Compile Include="Pages\carouselPage.cs" />
-    <Compile Include="Data\ISQLite.cs" />
-    <Compile Include="Data\MaiusDatabase.cs" />
-    <Compile Include="Models\Vak.cs" />
-    <Compile Include="Models\Vakken.cs" />
-    <Compile Include="Pages\LeerdoelPage.cs" />
-    <Compile Include="Pages\VakOverzicht.cs" />
-    <Compile Include="Models\Competenties.cs" />
-    <Compile Include="Views\VakCell.cs" />
-    <Compile Include="Views\LeerdoelCell.cs" />
-    <Compile Include="Views\CompetentieCell.cs" />
-    <Compile Include="Pages\LeerdoelenOverzicht.cs" />
-    <Compile Include="Pages\LoginPage.cs" />
+    <Compile Include="UI\Dashboard.cs" />
+    <Compile Include="UI\carouselPage.cs" />
+    <Compile Include="UI\LeerdoelPage.cs" />
+    <Compile Include="UI\VakOverzicht.cs" />
+    <Compile Include="UI\LeerdoelenOverzicht.cs" />
+    <Compile Include="UI\LoginPage.cs" />
+    <Compile Include="Data Acces Layer\Webservice\MaiusAPI.cs" />
+    <Compile Include="Business Layer\Views\CompetentieCell.cs" />
+    <Compile Include="Business Layer\Views\LeerdoelCell.cs" />
+    <Compile Include="Business Layer\Views\VakCell.cs" />
+    <Compile Include="Business Layer\Models\Competenties.cs" />
+    <Compile Include="Business Layer\Models\Leerdoel.cs" />
+    <Compile Include="Business Layer\Models\Leerdoelen.cs" />
+    <Compile Include="Business Layer\Models\Vak.cs" />
+    <Compile Include="Business Layer\Models\Vakken.cs" />
+    <Compile Include="Business Layer\Maius.cs" />
+    <Compile Include="Database\ISQLite.cs" />
+    <Compile Include="Database\MaiusDatabase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.4.2.6359\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.4.2.6359\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
@@ -98,16 +98,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Pages\" />
-    <Folder Include="Models\" />
-    <Folder Include="Webservice\" />
-    <Folder Include="Views\" />
-    <Folder Include="Data\" />
-    <Folder Include="Images\" />
+    <Folder Include="UI\" />
+    <Folder Include="Business Layer\" />
+    <Folder Include="Data Acces Layer\" />
+    <Folder Include="Database\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Images\star.png" />
-    <EmbeddedResource Include="Images\star_outline.png" />
-    <EmbeddedResource Include="Images\star_selected.png" />
+    <EmbeddedResource Include="UI\Images\star.png" />
+    <EmbeddedResource Include="UI\Images\star_outline.png" />
+    <EmbeddedResource Include="UI\Images\star_selected.png" />
   </ItemGroup>
 </Project>

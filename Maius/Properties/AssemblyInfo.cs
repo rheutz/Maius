@@ -8,9 +8,9 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyTitle ("Maius")]
 [assembly: AssemblyDescription ("")]
 [assembly: AssemblyConfiguration ("")]
-[assembly: AssemblyCompany ("")]
-[assembly: AssemblyProduct ("")]
-[assembly: AssemblyCopyright ("Ronald")]
+[assembly: AssemblyCompany ("GeoActive")]
+[assembly: AssemblyProduct ("MaiusApplication")]
+[assembly: AssemblyCopyright ("GeoActive")]
 [assembly: AssemblyTrademark ("")]
 [assembly: AssemblyCulture ("")]
 
