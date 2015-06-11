@@ -28,7 +28,7 @@ namespace Maius
 				WidthRequest = 16,
 			};
 
-			imgStar.Source = ImageSource.FromResource ("Maius.Images.star.png");
+			imgStar.Source = ImageSource.FromResource ("Maius.UI.Images.star.png");
 
 			var starStack = new StackLayout () {
 				Spacing = 5,

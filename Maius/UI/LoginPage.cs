@@ -39,7 +39,8 @@ namespace Maius
 
 			btnLogin.Clicked += async (object sender, EventArgs e) => {
 				this.IsBusy = true;
-				await MaiusAPI.Fetch();
+				await LoadFetch.callFetch();
+				//await MaiusAPI.Fetch();
 				//var vakOverzicht = new NavigationPage(new VakOverzicht());
 				await Navigation.PushAsync(new VakOverzicht());
 				Navigation.RemovePage(this);
