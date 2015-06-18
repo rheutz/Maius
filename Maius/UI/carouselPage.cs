@@ -10,8 +10,8 @@ namespace Maius
 		{
 			
 			
-			this.Children.Add (new Dashboard ());
-			this.Children.Add (new VakOverzicht());
+//			this.Children.Add (new Dashboard ());
+//			this.Children.Add (new VakOverzicht());
 		}
 	}
 }

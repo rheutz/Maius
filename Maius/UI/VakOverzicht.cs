@@ -1,12 +1,14 @@
 ﻿using System;
 using Xamarin.Forms;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+
 
 namespace Maius
 {
 	public class VakOverzicht : ContentPage
 	{
-		public VakOverzicht ()
+		public VakOverzicht (List<Vak> vakken)
 		{
 			Title = " Kies vak";
 
@@ -23,7 +25,7 @@ namespace Maius
 				HasUnevenRows = true,
 
 				//ItemsSource = MaiusDatabase.GetInstance().getLeerdoelen(),
-				ItemsSource = MaiusDatabase.GetInstance().getVakken(),
+				ItemsSource = vakken,
 			};
 				
 			Content = new StackLayout { 
@@ -37,7 +39,7 @@ namespace Maius
 			{
 				this.IsBusy = true;
 				Vak selected = (Vak)listView.SelectedItem;
-				var leerdoelenOverzicht = new LeerdoelenOverzicht(selected,await MaiusAPI.getLeerdoelenByVakID(selected.ID));
+				var leerdoelenOverzicht = new LeerdoelenOverzicht(await LoadFetch.CallLeerdoelen(selected.ID));
 				await Navigation.PushAsync(leerdoelenOverzicht);
 //				var vakPage = new LeerdoelPage(selected);
 //				await Navigation.PushAsync(leerdoelPage);

@@ -39,10 +39,10 @@ namespace Maius
 
 			btnLogin.Clicked += async (object sender, EventArgs e) => {
 				this.IsBusy = true;
-				await LoadFetch.callFetch();
 				//await MaiusAPI.Fetch();
 				//var vakOverzicht = new NavigationPage(new VakOverzicht());
-				await Navigation.PushAsync(new VakOverzicht());
+				var VakOverzicht = new VakOverzicht(await LoadFetch.CallVakken());
+				await Navigation.PushAsync(VakOverzicht);
 				Navigation.RemovePage(this);
 				this.IsBusy = false;
 			};

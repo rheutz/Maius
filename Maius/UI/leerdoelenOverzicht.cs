@@ -7,7 +7,7 @@ namespace Maius
 {
 	public class LeerdoelenOverzicht : ContentPage
 	{
-		public LeerdoelenOverzicht (Vak vak, List<Leerdoel> vakLeerdoelen)
+		public LeerdoelenOverzicht (List<Leerdoel> vakLeerdoelen)
 		{
 			Title = " Leerdoelen";
 
@@ -40,7 +40,7 @@ namespace Maius
 			{
 				this.IsBusy = true;
 				Leerdoel selected = (Leerdoel)listView.SelectedItem;
-				var leerdoelPage = new LeerdoelPage(selected, await MaiusAPI.getCompetentiesByLeerdoelID(selected.ID));
+				var leerdoelPage = new LeerdoelPage(selected, await LoadFetch.CallCompetenties(selected.ID));
 				await Navigation.PushAsync(leerdoelPage);
 				this.IsBusy = false;
 			};
