@@ -25,25 +25,39 @@ namespace Maius
 				BackgroundColor = Color.FromHex("#FF9D2C"),
 			};
 
+			var username = new Entry { Placeholder = "Username" };
+			var password = new Entry { Placeholder = "Password", IsPassword = true };
+
 			Content = new StackLayout {
 				Spacing = 20,
 				Padding = 50,
 				VerticalOptions = LayoutOptions.Center,
 				Children = {
-					new Entry { Placeholder = "Username" },
-					new Entry { Placeholder = "Password", IsPassword = true },
+					username,
+					password,
 					btnLogin,
-
 				}
 			};
 
 			btnLogin.Clicked += async (object sender, EventArgs e) => {
 				this.IsBusy = true;
-				//await MaiusAPI.Fetch();
-				//var vakOverzicht = new NavigationPage(new VakOverzicht());
-				var VakOverzicht = new VakOverzicht(await LoadFetch.CallVakken());
-				await Navigation.PushAsync(VakOverzicht);
-				Navigation.RemovePage(this);
+				if(username.Text.Length > 0)
+				{
+					var output = await MaiusAPI.login(username.Text, password.Text);
+					if(output.ERROR)
+					{
+						await DisplayAlert("Error!", output.message, "OK");
+					}
+					else if(!output.ERROR)
+					{
+					var VakOverzicht = new VakOverzicht(await LoadFetch.CallVakken());
+					await Navigation.PushAsync(VakOverzicht);
+					Navigation.RemovePage(this);
+					}
+				}
+			
+				//await Navigation.PushAsync(VakOverzicht);
+				//Navigation.RemovePage(this);
 				this.IsBusy = false;
 			};
 		

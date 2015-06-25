@@ -126,6 +126,11 @@ namespace Maius
 				leerdoel.Rating = 5;
 			};
 
+			var btnOpslaan = new Button {
+				Text = "Opslaan",
+				TextColor = Color.Black,
+				BackgroundColor = Color.FromHex("#FF9D2C"),
+			};
 
 			var ratingStack = new StackLayout { 
 				Orientation = StackOrientation.Horizontal,
@@ -137,8 +142,13 @@ namespace Maius
 				Padding = 10,
 				Spacing = 20,
 				Children = {
-					lbLeerdoel, lbRating, ratingStack, listView
+					lbLeerdoel, lbRating, ratingStack, btnOpslaan, listView
 				}
+			};
+
+			btnOpslaan.Clicked += async (object sender, EventArgs e) => 
+			{
+				
 			};
 		}
 	}
