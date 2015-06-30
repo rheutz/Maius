@@ -23,6 +23,14 @@ namespace Maius
 		{
 			return await MaiusAPI.getCompetentiesByLeerdoelID (leerdoelID);
 		} 
+		public static async Task<ApiLogin> login(string username, string password)
+		{
+			return await MaiusAPI.login (username, password);
+		} 
+		public static async Task<Object> storeRating(int rating, string leerdoelid, string instellingid )
+		{
+			return await MaiusAPI.storeRating (rating, leerdoelid, instellingid);
+		}
 	}
 }
 

@@ -67,6 +67,10 @@ namespace Maius
 				Source = ImageSource.FromResource("Maius.UI.Images.star_outline.png"),
 			};
 
+			//rating van het leerdoel
+			int leerdoelrating = 0;
+
+
 			var tapStar1 = new TapGestureRecognizer ();
 			imgStar1.GestureRecognizers.Add (tapStar1);
 			tapStar1.Tapped += (object sender, EventArgs e) => {
@@ -76,7 +80,8 @@ namespace Maius
 				imgStar4.Source = ImageSource.FromResource("Maius.UI.Images.star_outline.png");
 				imgStar5.Source = ImageSource.FromResource("Maius.UI.Images.star_outline.png");
 
-				leerdoel.Rating = 1;			//set rating 
+				leerdoelrating = 1;
+				//leerdoel.Rating = 1;			//set rating 
 			};
 
 			var tapStar2 = new TapGestureRecognizer ();
@@ -88,7 +93,8 @@ namespace Maius
 				imgStar4.Source = ImageSource.FromResource("Maius.UI.Images.star_outline.png");
 				imgStar5.Source = ImageSource.FromResource("Maius.UI.Images.star_outline.png");
 
-				leerdoel.Rating = 2;
+				leerdoelrating = 2;
+				//leerdoel.Rating = 2;
 			};
 				
 			var tapStar3 = new TapGestureRecognizer ();
@@ -100,7 +106,8 @@ namespace Maius
 				imgStar4.Source = ImageSource.FromResource("Maius.UI.Images.star_outline.png");
 				imgStar5.Source = ImageSource.FromResource("Maius.UI.Images.star_outline.png");
 
-				leerdoel.Rating = 3;
+				leerdoelrating = 3;
+				//leerdoel.Rating = 3;
 			};
 				
 			var tapStar4 = new TapGestureRecognizer ();
@@ -111,7 +118,9 @@ namespace Maius
 				imgStar3.Source = ImageSource.FromResource("Maius.UI.Images.star_selected.png");
 				imgStar4.Source = ImageSource.FromResource("Maius.UI.Images.star_selected.png");
 				imgStar5.Source = ImageSource.FromResource("Maius.UI.Images.star_outline.png");
-				leerdoel.Rating = 4;
+
+				leerdoelrating = 4;
+				//leerdoel.Rating = 4;
 
 			};
 				
@@ -123,7 +132,9 @@ namespace Maius
 				imgStar3.Source = ImageSource.FromResource("Maius.UI.Images.star_selected.png");
 				imgStar4.Source = ImageSource.FromResource("Maius.UI.Images.star_selected.png");
 				imgStar5.Source = ImageSource.FromResource("Maius.UI.Images.star_selected.png");
-				leerdoel.Rating = 5;
+
+				leerdoelrating = 5;
+				//leerdoel.Rating = 5;
 			};
 
 			var btnOpslaan = new Button {
@@ -148,7 +159,8 @@ namespace Maius
 
 			btnOpslaan.Clicked += async (object sender, EventArgs e) => 
 			{
-				
+				var output = await LoadFetch.storeRating(leerdoelrating, leerdoel.ID, "0");
+				await DisplayAlert("Info", output.ToString(), "OK");
 			};
 		}
 	}

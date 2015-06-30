@@ -11,7 +11,6 @@ namespace Maius
 			Title = "Login";
 
 			var loadingIndicator = new ActivityIndicator (){ 
-				//HorizontalOptions = LayoutOptions.CenterAndExpand,
 				Color = Color.Black,
 				IsRunning = true,
 				IsEnabled = true,
@@ -43,7 +42,7 @@ namespace Maius
 				this.IsBusy = true;
 				if(username.Text.Length > 0)
 				{
-					var output = await MaiusAPI.login(username.Text, password.Text);
+					var output = await LoadFetch.login(username.Text, password.Text);
 					if(output.ERROR)
 					{
 						await DisplayAlert("Error!", output.message, "OK");
@@ -55,9 +54,6 @@ namespace Maius
 					Navigation.RemovePage(this);
 					}
 				}
-			
-				//await Navigation.PushAsync(VakOverzicht);
-				//Navigation.RemovePage(this);
 				this.IsBusy = false;
 			};
 		

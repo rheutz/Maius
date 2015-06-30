@@ -11,6 +11,7 @@ namespace Maius
 		[JsonProperty(PropertyName="naam")]
 		public string Omschrijving { get; set; }
 
+		[JsonProperty(PropertyName="eigenoordeel")]
 		public int Rating { get; set; }
 
 
@@ -20,7 +21,7 @@ namespace Maius
 
 		public override string ToString ()
 		{
-			return string.Format ("[Leerdoel: Omschrijving={0}, ID={1}", Omschrijving, ID);
+			return string.Format ("[Leerdoel: Omschrijving={0}, ID={1}, Rating={2}", Omschrijving, ID, Rating);
 		}
 
 	}

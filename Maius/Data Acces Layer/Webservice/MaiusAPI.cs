@@ -11,7 +11,7 @@ namespace Maius
 	public static class MaiusAPI
 	{
 		static string ApiKey = null;
-		static string userID = null;
+		static string studentid = null;
 
 		public static async Task<ApiRegister> register(string name, string email, string password){
 			using (var client = new RestClient("http://heutsiethuis.no-ip.org/v1/"))
@@ -48,13 +48,12 @@ namespace Maius
 
 				//store the api key and userid
 				ApiKey = loginResult.apiKey;
-				userID = loginResult.id;
+				studentid = loginResult.id;
 
 				return loginResult;
 			}
 
 		}
-
 
 
 		public static async Task<List<Vak>> getVakken(){
@@ -74,7 +73,7 @@ namespace Maius
 		}
 		public static async Task<List<Leerdoel>> getLeerdoelenByVakID(string id){
 			using (var client = new RestClient ("http://heutsiethuis.no-ip.org/v1/")) {
-				var request = new RestRequest ("leerdoelen/" + id, HttpMethod.Get);
+				var request = new RestRequest ("leerdoelen/" + id + "/" + studentid, HttpMethod.Get);
 
 				//add api key to header
 				request.AddHeader("Authorization", ApiKey);
@@ -105,10 +104,15 @@ namespace Maius
 			}
 		}
 
-		public static async Task<Object> storeRating(string rating){
+		public static async Task<Object> storeRating(int rating, string leerdoelid, string instellingid ){
 			using (var client = new RestClient ("http://heutsiethuis.no-ip.org/v1/")) {
-				var request = new RestRequest ("competenties/" + id, HttpMethod.Get);
+				var request = new RestRequest ("leerdoelen/rating", HttpMethod.Post);
 
+				//add parameters
+				request.AddParameter ("studentid", studentid);
+				request.AddParameter ("leerdoelid", leerdoelid);
+				request.AddParameter ("instellingid", instellingid);
+				request.AddParameter ("rating", rating);
 
 				//add api key to header
 				request.AddHeader("Authorization", ApiKey);
@@ -116,9 +120,8 @@ namespace Maius
 				var result = await client.Execute (request);
 
 				string resultString = System.Text.Encoding.UTF8.GetString (result.RawBytes, 0, result.RawBytes.Length);
-				var competentiesList = JsonConvert.DeserializeObject<Competenties> (resultString);
 
-				return competentiesList.listCompetenties;
+				return resultString;
 			}
 		}
 	}
