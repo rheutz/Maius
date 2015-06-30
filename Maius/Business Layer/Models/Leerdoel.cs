@@ -12,8 +12,8 @@ namespace Maius
 		public string Omschrijving { get; set; }
 
 		[JsonProperty(PropertyName="eigenoordeel")]
-		public int Rating { get; set; }
-
+		public string Rating { get; set; }
+	
 
 		public Leerdoel ()
 		{

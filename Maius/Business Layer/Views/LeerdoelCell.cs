@@ -10,7 +10,6 @@ namespace Maius
 			var lblOmschrijving = new Label () {
 				FontFamily = "HelveticaNeue-Medium",
 				FontSize = 16,
-				//FontAttributes = FontAttributes.Bold,
 				TextColor = Color.Black,
 			};
 			lblOmschrijving.SetBinding (Label.TextProperty, "Omschrijving");
@@ -20,7 +19,7 @@ namespace Maius
 				FontAttributes = FontAttributes.Bold,
 				TextColor = Color.Black,
 			};
-
+				
 			lblStar.SetBinding (Label.TextProperty, "Rating");
 
 			var imgStar = new Image () {
@@ -37,7 +36,6 @@ namespace Maius
 			};
 
 			var cellLayout = new StackLayout (){ 
-				//Padding = new Thickness(10, 0, 0,0),
 				Spacing = 0,
 				HorizontalOptions = LayoutOptions.FillAndExpand,
 				Children = { lblOmschrijving, starStack }

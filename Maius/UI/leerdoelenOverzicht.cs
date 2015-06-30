@@ -11,14 +11,6 @@ namespace Maius
 		{
 			Title = " Leerdoelen";
 
-			var loadingIndicator = new ActivityIndicator (){ 
-				//HorizontalOptions = LayoutOptions.CenterAndExpand,
-				Color = Color.Black,
-				IsRunning = true,
-				IsEnabled = true,
-				BindingContext = this,
-			};
-
 			var listView = new ListView {
 				
 				ItemTemplate = new DataTemplate (typeof(LeerdoelCell)),
