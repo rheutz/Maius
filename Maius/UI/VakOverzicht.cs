@@ -41,22 +41,12 @@ namespace Maius
 				Vak selected = (Vak)listView.SelectedItem;
 				var leerdoelenOverzicht = new LeerdoelenOverzicht(await LoadFetch.CallLeerdoelen(selected.ID));
 				await Navigation.PushAsync(leerdoelenOverzicht);
-//				var vakPage = new LeerdoelPage(selected);
-//				await Navigation.PushAsync(leerdoelPage);
 				this.IsBusy = false; 
 			};
 	
 		}
 
 
-
-		protected override void OnAppearing()
-		{
-			//base.OnAppearing ();
-			//fill local database with data from API
-			//MaiusAPI.Fetch ();
-			//Task.Delay (5000);
-		}
 						
 	}
 

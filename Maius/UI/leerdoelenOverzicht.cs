@@ -17,9 +17,7 @@ namespace Maius
 				HasUnevenRows = true,
 				ItemsSource = vakLeerdoelen,
 			};
-
-
-
+				
 			Content = new StackLayout { 
 				Padding = 10,
 				Spacing = 10,
