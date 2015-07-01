@@ -8,10 +8,6 @@ namespace Maius
 	{
 		[JsonProperty(PropertyName="competenties")]
 		public List<Competentie> listCompetenties { get; set;}
-
-		public Competenties ()
-		{
-		}
 	}
 
 	public class Competentie 
@@ -21,12 +17,6 @@ namespace Maius
 
 		[JsonProperty(PropertyName="Standaardnaam")]
 		public string Omschrijving { get; set; }
-
-		public int Rating { get; set; }
-
-		public Competentie()
-		{
-		}
 	}
 }
 

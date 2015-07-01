@@ -32,7 +32,6 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\Dashboard.cs" />
-    <Compile Include="UI\carouselPage.cs" />
     <Compile Include="UI\LeerdoelPage.cs" />
     <Compile Include="UI\VakOverzicht.cs" />
     <Compile Include="UI\LeerdoelenOverzicht.cs" />
@@ -44,10 +43,7 @@
     <Compile Include="Business Layer\Models\Vak.cs" />
     <Compile Include="Business Layer\Models\Vakken.cs" />
     <Compile Include="Business Layer\Maius.cs" />
-    <Compile Include="Database\ISQLite.cs" />
-    <Compile Include="Database\MaiusDatabase.cs" />
     <Compile Include="Business Layer\LoadFetch.cs" />
-    <Compile Include="Business Layer\Models\ApiRegister.cs" />
     <Compile Include="Business Layer\Models\ApiLogin.cs" />
     <Compile Include="UI\Views\CompetentieCell.cs" />
     <Compile Include="UI\Views\LeerdoelCell.cs" />

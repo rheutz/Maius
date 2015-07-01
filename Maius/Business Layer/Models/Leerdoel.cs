@@ -13,11 +13,6 @@ namespace Maius
 
 		[JsonProperty(PropertyName="eigenoordeel")]
 		public string Rating { get; set; }
-	
-
-		public Leerdoel ()
-		{
-		}
 
 		public override string ToString ()
 		{

@@ -13,7 +13,6 @@ namespace Maius
 			Title = " Kies vak";
 
 			var loadingIndicator = new ActivityIndicator (){ 
-				//HorizontalOptions = LayoutOptions.CenterAndExpand,
 				Color = Color.Black,
 				IsRunning = true,
 				IsEnabled = true,
@@ -23,8 +22,6 @@ namespace Maius
 			var listView = new ListView {
 				ItemTemplate = new DataTemplate (typeof(VakCell)),
 				HasUnevenRows = true,
-
-				//ItemsSource = MaiusDatabase.GetInstance().getLeerdoelen(),
 				ItemsSource = vakken,
 			};
 				

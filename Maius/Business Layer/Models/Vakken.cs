@@ -8,10 +8,6 @@ namespace Maius
 	{
 		[JsonProperty(PropertyName="vakken")]
 		public List<Vak> listVakken { get; set;}
-
-		public Vakken ()
-		{
-		}
-	}
+        	}
 }
 

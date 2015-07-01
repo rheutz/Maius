@@ -8,10 +8,6 @@ namespace Maius
 	{
 		[JsonProperty(PropertyName="leerdoelen")]
 		public List<Leerdoel> listLeerdoelen { get; set;}
-
-		public Leerdoelen ()
-		{
-		}
 	}
 }
 
