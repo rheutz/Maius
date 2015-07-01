@@ -10,29 +10,11 @@ namespace Maius
 {
 	public static class MaiusAPI
 	{
-		static string ApiKey = null;
-		static string studentid = null;
+		static string ApiKey = null;			//apikey voor het uitvoeren van requests
+		static string studentid = null;			//studentid
 
-		public static async Task<ApiRegister> register(string name, string email, string password){
-			using (var client = new RestClient("http://maiustest.ddns.net/v1/"))
-				{
-				var request = new RestRequest("register", HttpMethod.Post);
-				//add parameters
-				request.AddParameter ("name", name);
-				request.AddParameter ("email", email);
-				request.AddParameter ("password", password);
 
-				//execute the request
-				var result = await client.Execute(request);
-				string resultString = System.Text.Encoding.UTF8.GetString (result.RawBytes, 0, result.RawBytes.Length);
-				var registerResult = JsonConvert.DeserializeObject<ApiRegister> (resultString);
-			
-
-				return registerResult;
-				}
-			
-		}
-
+		//Inloggen op de webserver, indien de username en password correct zijn word er een API key terug gegeven
 		public static async Task<ApiLogin> login(string username, string password){
 			using (var client = new RestClient("http://maiustest.ddns.net/v1/"))
 			{
@@ -55,7 +37,7 @@ namespace Maius
 
 		}
 
-
+		//methode voor het ophalen van de vakken via de webservice
 		public static async Task<List<Vak>> getVakken(){
 			using (var client = new RestClient ("http://maiustest.ddns.net/v1/")) {
 				var request = new RestRequest ("vakken", HttpMethod.Get);
@@ -71,6 +53,8 @@ namespace Maius
 				return vakkenlist.listVakken;
 			}
 		}
+
+		//methode voor het ophalen van alle leerdoelen behorend bij een vak
 		public static async Task<List<Leerdoel>> getLeerdoelenByVakID(string id){
 			using (var client = new RestClient ("http://maiustest.ddns.net/v1/")) {
 				var request = new RestRequest ("leerdoelen/" + id + "/" + studentid, HttpMethod.Get);
@@ -87,6 +71,7 @@ namespace Maius
 		}
 	}
 
+		//methode voor het ophalen van de competenties behorend bij een leerdoel
 		public static async Task<List<Competentie>> getCompetentiesByLeerdoelID(string id){
 			using (var client = new RestClient ("http://maiustest.ddns.net/v1/")) {
 				var request = new RestRequest ("competenties/" + id, HttpMethod.Get);
@@ -104,6 +89,7 @@ namespace Maius
 			}
 		}
 
+		//methode voor het opslaan van de rating bij een leerdoel
 		public static async Task<Object> storeRating(int rating, string leerdoelid, string instellingid ){
 			using (var client = new RestClient ("http://maiustest.ddns.net/v1/")) {
 				var request = new RestRequest ("leerdoelen/rating", HttpMethod.Post);

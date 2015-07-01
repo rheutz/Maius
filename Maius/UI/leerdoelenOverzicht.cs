@@ -9,6 +9,8 @@ namespace Maius
 	{
 		public LeerdoelenOverzicht (List<Leerdoel> vakLeerdoelen)
 		{
+
+			//pagina opbouw
 			Title = " Leerdoelen";
 
 			var listView = new ListView {
@@ -26,6 +28,7 @@ namespace Maius
 				}
 			};
 
+			//logica voor het klikken op een leerdoel
 			listView.ItemTapped += async (object sender, ItemTappedEventArgs e) => 
 			{
 				this.IsBusy = true;

@@ -7,7 +7,7 @@ namespace Maius
 	{
 		public LoginPage ()
 		{
-
+			//opbouw van de pagina
 			Title = "Login";
 
 			var loadingIndicator = new ActivityIndicator (){ 
@@ -38,6 +38,8 @@ namespace Maius
 				}
 			};
 
+
+			//loginbutton logica
 			btnLogin.Clicked += async (object sender, EventArgs e) => {
 				this.IsBusy = true;
 				if(username.Text.Length > 0)

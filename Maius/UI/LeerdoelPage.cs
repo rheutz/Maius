@@ -12,6 +12,7 @@ namespace Maius
 
 		public LeerdoelPage (Leerdoel leerdoel, List<Competentie> leerdoelenCompetenties)
 		{
+			//Pagina opbouw
 			Title = " Beoordelen";
 
 			var listView = new ListView {
@@ -70,7 +71,7 @@ namespace Maius
 			//rating van het leerdoel
 			int leerdoelrating = 0;
 
-
+			//logica voor het klikken op de sterren
 			var tapStar1 = new TapGestureRecognizer ();
 			imgStar1.GestureRecognizers.Add (tapStar1);
 			tapStar1.Tapped += (object sender, EventArgs e) => {
@@ -81,7 +82,7 @@ namespace Maius
 				imgStar5.Source = ImageSource.FromResource("Maius.UI.Images.star_outline.png");
 
 				leerdoelrating = 1;
-				//leerdoel.Rating = 1;			//set rating 
+
 			};
 
 			var tapStar2 = new TapGestureRecognizer ();
@@ -94,7 +95,7 @@ namespace Maius
 				imgStar5.Source = ImageSource.FromResource("Maius.UI.Images.star_outline.png");
 
 				leerdoelrating = 2;
-				//leerdoel.Rating = 2;
+
 			};
 				
 			var tapStar3 = new TapGestureRecognizer ();
@@ -107,7 +108,7 @@ namespace Maius
 				imgStar5.Source = ImageSource.FromResource("Maius.UI.Images.star_outline.png");
 
 				leerdoelrating = 3;
-				//leerdoel.Rating = 3;
+
 			};
 				
 			var tapStar4 = new TapGestureRecognizer ();
@@ -120,7 +121,7 @@ namespace Maius
 				imgStar5.Source = ImageSource.FromResource("Maius.UI.Images.star_outline.png");
 
 				leerdoelrating = 4;
-				//leerdoel.Rating = 4;
+
 
 			};
 				
@@ -134,7 +135,7 @@ namespace Maius
 				imgStar5.Source = ImageSource.FromResource("Maius.UI.Images.star_selected.png");
 
 				leerdoelrating = 5;
-				//leerdoel.Rating = 5;
+
 			};
 
 			var btnOpslaan = new Button {
@@ -157,6 +158,7 @@ namespace Maius
 				}
 			};
 
+			//opslaan button logica
 			btnOpslaan.Clicked += async (object sender, EventArgs e) => 
 			{
 				var output = await LoadFetch.storeRating(leerdoelrating, leerdoel.ID, "0");

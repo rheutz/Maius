@@ -10,6 +10,7 @@ namespace Maius
 	{
 		public VakOverzicht (List<Vak> vakken)
 		{
+			//pagina opbouw
 			Title = " Kies vak";
 
 			var loadingIndicator = new ActivityIndicator (){ 
@@ -32,6 +33,7 @@ namespace Maius
 				}
 			};
 
+			//logica voor het klikken op een vak
 			listView.ItemTapped += async (object sender, ItemTappedEventArgs e) => 
 			{
 				this.IsBusy = true;
